@@ -4,6 +4,7 @@ import { Text, View, StyleSheet , FlatList, Dimensions, Image} from 'react-nativ
 //TODO_BAHAR num columsu propstan alıp nasıl yapabilirim
 export class GridView extends Component {
   render() {
+    console.log(this.props.size1);
     return (
       <View style={styles.container}>
         <FlatList

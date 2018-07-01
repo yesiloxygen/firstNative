@@ -7,6 +7,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import DenemeScreen from '../screens/DenemeScreen';
+import AdvertiseScreen from '../screens/AdvertiseScreen';
+AdvertiseScreen
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -32,6 +34,26 @@ const DenemeStack = createStackNavigator({
 
 
 DenemeStack.navigationOptions = {
+  tabBarLabel: 'Deneme',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+const AdvertisementStack = createStackNavigator({
+  Advertise: AdvertiseScreen,
+});
+
+
+AdvertisementStack.navigationOptions = {
+  tabBarLabel: 'Adv',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -79,4 +101,5 @@ export default createBottomTabNavigator({
   DenemeStack,
   LinksStack,
   SettingsStack,
+  AdvertisementStack,
 });
