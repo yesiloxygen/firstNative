@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import DenemeScreen from '../screens/DenemeScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -24,6 +25,26 @@ HomeStack.navigationOptions = {
     />
   ),
 };
+
+const DenemeStack = createStackNavigator({
+  Deneme: DenemeScreen,
+});
+
+
+DenemeStack.navigationOptions = {
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+
 
 const LinksStack = createStackNavigator({
   Links: LinksScreen,
@@ -55,6 +76,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
+  DenemeStack,
   LinksStack,
   SettingsStack,
 });
