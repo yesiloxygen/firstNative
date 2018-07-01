@@ -18,7 +18,7 @@ export default class DenemeScreen extends React.Component {
     render() {
         return (
             <View>
-                <GridView/>
+                <GridView numColumns = {4} />
             </View>
            
         );
