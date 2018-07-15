@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet , FlatList, Dimensions, Image} from 'react-native';
-
-import Button from './Button';
-
+import { Text, View, StyleSheet , FlatList, Dimensions, Image, Button} from 'react-native';
 //TODO_BAHAR num columsu propstan alıp nasıl yapabilirim
 export class GridView extends Component {
     data = [
@@ -27,44 +24,41 @@ export class GridView extends Component {
           backgroundColor: 'lightblue',
         },
         subContainerStyle1: {
-        borderBottomWidth: 1,
-        padding: 5,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        borderColor: '#ddd',
-        position: 'relative'
+          borderBottomWidth: 1,
+          margin: 5,
+          backgroundColor: '#fff',
+          justifyContent: 'flex-start',
+          flexDirection: 'row',
+          borderColor: '#ddd',
+          position: 'relative',
+          width: this.size,
+          height: this.size,
       },
-      subContainerStyle2: {
-        borderBottomWidth: 1,
-        padding: 5,
-        marginTop: 30,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        borderColor: '#ddd',
-        position: 'relative'
+      buttonStyle: {
+        width: this.size,
+        height: this.size/4,
       },
       });
 
 
   render() {
-      console.log(this.props.numColumns);
+      console.log(this.size);
     return (
-        <View style={this.styles.container}>
+        <View >
         <FlatList
           data={this.data}
           renderItem={({item}) => (
-            <View style={this.styles.itemContainer}>             
-               <View style={this.styles.subContainerStyle1}>
-                <Image style={this.styles.itemContainer}
-                source = {{ uri: 
-                  'https://pbs.twimg.com/profile_images/486929358120964097/gNLINY67_400x400.png' }}
-                  
-                  />
-                </View>
-                <View style={this.styles.subContainerStyle2}>
-                <Button onPress={() => console.log("button clicked")}> Button </Button>
-                </View>
-            </View>
+            <View >             
+            <View >
+             <Image style={this.styles.subContainerStyle1} 
+             source = {{ uri: 
+               'https://pbs.twimg.com/profile_images/486929358120964097/gNLINY67_400x400.png' }}                  
+               />
+             </View>
+               <View >
+               <Button style={this.styles.buttonStyle} onPress={() => console.log("butona bastım")} title= "asdfas"> </Button>
+             </View>
+         </View>
           )}
           keyExtractor={item => item.id}
           numColumns={this.props.numColumns} />
