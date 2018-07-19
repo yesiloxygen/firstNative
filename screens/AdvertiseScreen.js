@@ -2,7 +2,10 @@ import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { AdMobBanner, AdMobInterstitial, AdMobRewarded } from "expo";
 export default class App extends React.Component {
-componentDidMount() {
+  static navigationOptions = {
+    title: 'Advertise',
+  };
+  componentDidMount() {
     AdMobInterstitial.setTestDeviceID("EMULATOR");
     // ALWAYS USE TEST ID for Admob ads
     AdMobInterstitial.setAdUnitID("ca-app-pub-1425926517331745/1141181467");
@@ -30,7 +33,7 @@ componentDidMount() {
     AdMobRewarded.addEventListener("rewardedVideoDidLoad", () =>
       console.log("interstitialDidLoad")
     );
-AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
+    AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
       console.log("interstitialDidLoad")
     );
     AdMobRewarded.addEventListener("rewardedVideoDidOpen", () =>
@@ -43,17 +46,17 @@ AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
       console.log("interstitialDidLoad")
     );
   }
-  
+
   componentWillUnmount() {
     AdMobInterstitial.removeAllListeners();
     AdMobRewarded.removeAllListeners();
   }
-  
+
   bannerError() {
     console.log("An error");
     return;
   }
-  
+
   showInterstitial = async () => {
     await AdMobInterstitial.requestAdAsync();
     await AdMobInterstitial.showAdAsync();
@@ -63,8 +66,8 @@ AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
     await AdMobRewarded.requestAdAsync();
     await AdMobRewarded.showAdAsync();
   };
-  
-  
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -82,7 +85,7 @@ AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
         <AdMobBanner
           style={styles.bottomBanner}
           bannerSize="fullBanner"
-          adUnitID="ca-app-pub-1425926517331745/4139536433"
+          adUnitID="ca-app-pub-4443845376824715/6547812853"
           // Test ID, Replace with your-admob-unit-id
           testDeviceID="EMULATOR"
           didFailToReceiveAdWithError={this.bannerError}
