@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Dimensions,
   View,
 } from 'react-native';
 
@@ -19,8 +18,7 @@ export default class DenemeScreen extends React.Component {
     render() {
         return (
             <View>
-                <GridView
-                size1={Dimensions.get('window').width/3}/>
+                <GridView numColumns = {4} />
             </View>
            
         );

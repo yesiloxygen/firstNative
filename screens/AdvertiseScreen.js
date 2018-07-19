@@ -26,7 +26,7 @@ export default class App extends React.Component {
     );
     AdMobRewarded.setTestDeviceID("EMULATOR");
     // ALWAYS USE TEST ID for Admob ads
-    AdMobRewarded.setAdUnitID("ca-app-pub-1425926517331745/3923257478");
+    AdMobRewarded.setAdUnitID("ca-app-pub-4443845376824715/2320254234");
     AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () =>
       console.log("interstitialDidLoad")
     );
@@ -71,7 +71,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text>This is ad screeen!</Text>
         <Button
           title="Interstitial"
           onPress={this.showInterstitial}
@@ -87,7 +87,7 @@ export default class App extends React.Component {
           bannerSize="fullBanner"
           adUnitID="ca-app-pub-4443845376824715/6547812853"
           // Test ID, Replace with your-admob-unit-id
-          testDeviceID="EMULATOR"
+          testDeviceID="ca-app-pub-4443845376824715~8510781156"
           didFailToReceiveAdWithError={this.bannerError}
         />
       </View>
